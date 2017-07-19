@@ -1,0 +1,30 @@
+.nav-main {
+    overflow: hidden;
+    transition: all 0.75s ease;
+}
+
+.nav-items {
+    list-style-type: none;
+    padding-left: 0;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    a {
+        color: $black;
+        &:hover,
+        &:focus {
+            color: $blue;
+        }
+    }
+    @include bp(md) {
+        justify-content: flex-end;
+    }
+}
+
+.nav-item-link {
+    padding: 1.4rem .2rem;
+    @include bp(md) {
+        padding: 1.4rem;
+    }
+}

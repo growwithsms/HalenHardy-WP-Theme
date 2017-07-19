@@ -1,0 +1,110 @@
+
+// ---
+// Base Site Styles
+// ---
+
+* {
+	 box-sizing: border-box;
+}
+
+// ---
+// General Selectors
+// ---
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+table {
+	width: 100%;
+}
+
+// ---
+// Header
+// ---
+.site-logo {
+    margin: 0;
+    padding-top: $size-base/2;
+    padding-bottom: $size-base/2;
+}
+.site-header-top {
+	background: $black;
+	&.stuck {
+	  position:fixed;
+	  top:0;
+	  width: 100%;
+	  z-index: 10;
+	}
+	a {
+		color: $white;
+		white-space: nowrap;
+		display: inline-block;
+	}
+	.phone {
+		font-size: 2rem;
+		vertical-align: middle;
+		font-weight: bold;
+		margin: 0 $size-base;
+	}
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		@include bp(md) {
+	        justify-content: space-between;
+	    }
+	}
+	.text-right {
+		text-align: center;
+		@include bp(md) {
+	        text-align: right;
+	    }
+	}
+}
+.site-header-bottom {
+	background: $white;
+}
+
+
+// ---
+// Main Site Content
+// ---
+
+.wrapper {
+	max-width: $screen-xlg;
+	width: 93%;
+	margin: 0 auto;
+}
+
+.article-body-wrapper {
+	background: $white;
+}
+.article-body {
+	padding: $size-base 0;
+}
+
+
+// ---
+// Footer
+// ---
+.site-footer {
+	clear: both;
+	background: $black;
+	color: $white;
+	padding: $size-base;
+	p {
+		line-height: 1;
+	}
+	a {
+		color: $white;
+		vertical-align: middle;
+		display: inline-block;
+		margin-left: $size-base/3;
+		&:focus,
+		&:hover {
+			opacity: .9;
+		}
+	}
+}

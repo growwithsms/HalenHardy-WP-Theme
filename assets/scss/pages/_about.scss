@@ -1,0 +1,36 @@
+// ---
+// About Page
+// ---
+.about-page-content {
+	> section {
+		padding: $size-base*3 $size-base;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:nth-child(even) {
+			background: $blue;
+			color: $white;
+		}
+	}
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.team-member {
+    flex: 1;
+    min-width: 200px;
+    margin: 1rem;
+    img {
+    	background: $white;
+    }
+	h4 {
+	    margin-bottom: 0;
+	}
+	p {
+	    margin-top: $size-base/2;
+	}
+}

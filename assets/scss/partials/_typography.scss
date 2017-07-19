@@ -1,0 +1,120 @@
+
+// ---
+// Typography
+// ---
+
+body {
+	font-family: $body-font;
+	line-height: $line-height-base;
+	font-weight: 300;
+	background-color: $grey;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+}
+
+a {
+	&:hover, &:focus {
+		color: $color-link-hover;
+	}
+	&:active {
+		color: $color-link-active;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1;
+	font-family: $heading-font;
+}
+
+h1 {
+	font-size: $size-h1;
+	margin-top: $size-h3;
+}
+
+h2 {
+	font-size: $size-h2;
+	margin-top: $size-h4;
+}
+
+h3 {
+	font-size: $size-h3;
+	margin-top: $size-h4;
+}
+
+h4 {
+	font-size: $size-h4;
+	margin-top: $size-base;
+}
+
+h5 {
+	font-size: $size-h5;
+	margin-top: $size-base;
+}
+
+h6 {
+	font-size: $size-sml;
+	margin-top: $size-base;
+}
+
+p {
+	margin-top: $size-base;
+	font-size: $size-base;
+}
+
+small {
+	font-size: $size-sml;
+}
+
+
+// Icons
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-youtube-square {
+  width: 0.857421875em;
+}
+
+.icon-linkedin-square {
+  width: 0.857421875em;
+}
+
+.icon-facebook-square {
+  width: 0.857421875em;
+}
+
+.icon-twitter-square {
+  width: 0.857421875em;
+}
+
+.icon-chevron-left {
+  width: 0.75em;
+}
+
+.icon-chevron-right {
+  width: 0.6787109375em;
+}
+
+.icon-user {
+  width: 0.7138671875em;
+}
+
+.icon-shopping-cart {
+  width: 0.9287109375em;
+}

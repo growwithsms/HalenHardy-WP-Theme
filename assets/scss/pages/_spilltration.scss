@@ -1,0 +1,56 @@
+// ---
+// Spilltration Page
+// ---
+.spilltration-page-content {
+	section:not(.cta-section) {
+		padding: $size-base*3 $size-base;
+		&.spilltration-feature {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img {
+				border-radius: 50%;
+				margin-right: 2em;
+				width: 25%
+			}
+			.text-wrapper {
+				width: 75%;
+			}
+			.wrapper {
+				display: flex;
+				align-items: center;
+			}
+			&:nth-child(even) {
+				background: $blue;
+				color: $white;
+				.wrapper img {
+					order: 2;
+					margin-right: 0;
+					margin-left: 2em;
+				}
+			}
+		}
+	}
+	.cta-section {
+		display: flex;
+		> a {
+			padding: 6rem 2rem;
+			flex: 1;
+			background-position: center;
+			background-size: cover;
+			color: #fff;
+			background: $blue;
+			&:first-child {
+				background: darken($blue, 5%);
+			}
+			&:hover,
+			&:focus {
+				background: lighten($blue, 5%);
+			}
+			p {
+				font-size: 2em;
+				max-width: 90%;
+			}
+		}
+	}
+}

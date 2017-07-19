@@ -1,0 +1,85 @@
+
+// ---
+// Variables
+// ---
+
+
+
+// ---
+// Screen sizes
+// ---
+
+$screen-xs: 		28em;
+$screen-sm: 		35em;
+$screen-md: 		52em;
+$screen-lg: 		60em;
+$screen-xlg: 		72em;
+
+
+
+// ---
+// Colors
+// ---
+
+$dark-blue:			#27617F;
+$blue: 				#33799F;
+$yellow: 			#EFC94C;
+$orange: 			#E27A3F;
+$red: 				#DF4949;
+
+$white: #fefefe;
+$grey: #ebebeb;
+$black: #191919;
+
+// These are nice utility colors
+$color-accent-light: 	$yellow;
+$color-accent-med: 		$blue;
+$color-accent-dark:		$dark-blue;
+
+$color-text-light: 		$white;
+$color-text-dark: 		$black;
+
+$color-notice-success:	$blue;
+$color-notice-info:		lighten($dark-blue, 20%);
+$color-notice-danger:	$red;
+$color-notice-warning:	$orange;
+
+// Then element-based names are nice too
+$color-link: 		       $color-accent-med;
+$color-link-hover: 		 darken($color-link, 20%);
+$color-link-active: 	 darken($color-link, 60%);
+
+// The most commonly rotated color:
+$color-rotate-text:   $color-text-light;
+$color-rotate-bkgd:   $color-accent-med;
+$color-rotate-link:   $color-accent-light;
+
+
+// ---
+// Scale
+// ---
+
+$size-base:  		1.1rem;
+$size-sml:  		$size-base*0.8;
+
+$size-h1:  			$size-base*2.6;
+$size-h2:  			$size-base*2.2;
+$size-h3:  			$size-base*1.8;
+$size-h4:  			$size-base*1.4;
+$size-h5:  			$size-base*1.2;
+$size-h6:  			$size-sml;
+
+
+
+// ---
+// Typography
+// ---
+
+$sans-serif: 		'Montserrat', sans-serif;
+$serif:         Georgia, serif;
+
+// Semantic names
+$line-height-base: 	1.5;
+
+$heading-font: 		$sans-serif;
+$body-font: 		  $sans-serif;

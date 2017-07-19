@@ -1,0 +1,48 @@
+// ---
+// Buttons
+// ---
+
+// Here's a simple button mixin. Instead of keeping it in utility/_mixin.scss, I'm putting it here so we can easily reference it without going into a new file.
+
+@mixin button($background, $text-color: $color-text-light) {
+	background-color: $background;
+	color: $text-color;
+	padding: $size-base/1.5 $size-base;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	border: 0 none;
+}
+
+// A note about naming: instead of .default-btn, I like to have .btn first so that it's more easily scannable. Change it up as you like!
+
+// Default button
+.button,
+.woocommerce a.button, 
+.woocommerce button.button, 
+.woocommerce input.button, 
+.woocommerce #review_form #submit {
+	@include button($color-accent-dark);
+	&:hover,
+	&:focus {
+		background-color: lighten($color-accent-dark, 10%);
+		color: #fff;
+	}
+}
+
+// Info button, maybe for "Read More" or something.
+.button-white {
+	@include button($color-notice-info, $color-text-dark);
+}
+
+.button-alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+	@include button($color-accent-med);
+	&:hover,
+	&:focus {
+		background-color: lighten($color-accent-dark, 10%);
+		color: #fff;
+	}
+}
