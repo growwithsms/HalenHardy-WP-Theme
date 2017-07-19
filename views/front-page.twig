@@ -1,0 +1,15 @@
+
+{# No specific markup for the home page, yet. Add it here inside a content block! #}
+
+{% extends "page.twig" %}
+
+{% block content %}
+	<div class="wrapper">
+        <section class="article-content">
+			<h1>{{ wp_title }}</h1>
+			{% for post in posts %}
+				{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+			{% endfor %}
+		</section>
+	</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<section class="blocky-grid">
+		{% for grid_block in post.get_field('pages_grid') %}
+			{% if grid_block.acf_fc_layout == 'medium_video_block' %}
+				<div class="blocky-grid-item medium video">
+					<div class="blocky-grid-item--inner">
+						<a href="{{grid_block.video_id}}"><img src="{{TimberImage(grid_block.thumbnail).src}}" /></a>
+					</div>
+				</div>
+			{% endif %}
+			{% if grid_block.acf_fc_layout == 'medium_text_block' %}
+				<div class="blocky-grid-item medium text">
+					<div class="blocky-grid-item--inner">
+						<h3>{{grid_block.header}}</h3>
+						<p>{{grid_block.description}}</p>
+						<a href="{{grid_block.button_url}}" class="button grey">{{grid_block.button_text}}</a>
+					</div>
+				</div>
+			{% endif %}
+			{% if grid_block.acf_fc_layout == 'medium_blog_block' %}
+				<div class="blocky-grid-item small blog">
+					<div class="blocky-grid-item--inner">
+						{{grid_block.rss_aggregator_shortcode}}
+					</div>
+				</div>
+				<div class="blocky-grid-item small blog">
+					<div class="blocky-grid-item--inner">
+						<h3>{{grid_block.header}}</h3>
+					</div>
+				</div>
+			{% endif %}
+			{% if grid_block.acf_fc_layout == 'small_text_block' %}
+				<div class="blocky-grid-item small text">
+					<div class="blocky-grid-item--inner">
+						<h3>{{grid_block.header}}</h3>
+						<p>{{grid_block.description}}</p>
+						<a href="{{grid_block.url}}" class="button white">more</a>
+					</div>
+				</div>
+			{% endif %}
+			{% if grid_block.acf_fc_layout == 'large_text_block' %}
+				<div class="blocky-grid-item large text" {% if TimberImage(grid_block.background_image).src %}style="background-image: url({{TimberImage(grid_block.background_image).src}});"{% endif %}>
+					<div class="blocky-grid-item--inner">
+						<h3>{{grid_block.header}}</h3>
+						<p>{{grid_block.description}}</p>
+						<a class="button" href="{{grid_block.button_url}}">{{grid_block.button_text}}</a>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</section>
+	<section class="testimonials">
+		{% for testimonial in post.get_field('testimonials') %}
+	        <div class="testimonial">
+	            <a href="#">
+	            	<img src="{{TimberImage(testimonial.logo).src}}" width="{{TimberImage(testimonial.logo).width}}" height="{{TimberImage(testimonial.logo).height}}" />
+	            </a>
+	        </div>
+	    {% endfor %}
+	</section>
+	<section class="large-section">
+		<div class="row-fluid">
+			<div class="span6">
+				<img src="{{ post.thumbnail.src }}" alt="{{post.title}}">
+			</div>
+			<div class="span6">
+				{{post.content}}
+			</div>
+		</div>
+	</section>
+{% endblock %}

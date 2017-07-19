@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<article class="spilltration-page-content post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section>
+			<div class="wrapper">
+				<h1>{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</div>
+		</section>
+		{% for feature in post.get_field('features') %}
+	        <section class="spilltration-feature">
+				<div class="wrapper">
+					<img src="{{TimberImage(feature.image).src}}" alt="{{feature.name}}" width="{{TimberImage(feature.image).width}}" height="{{TimberImage(feature.image).height}}" />
+					<div class="text-wrapper">
+						<h3>{{feature.name}}</h3>
+						{{feature.description}}
+					</div>
+				</div>
+			</section>
+	    {% endfor %}
+		<section class="cta-section">
+			<a class="cta-left" href="{{post.get_field('cta_left_url')}}" style="background-image:url({{TimberImage(post.get_field('cta_left_background')).src}});">
+				<p>{{post.get_field('cta_left_text')}}</p>
+			</a>
+			<a class="cta-right" href="{{post.get_field('cta_right_url')}}" style="background-image:url({{TimberImage(post.get_field('cta_right_background')).src}});">
+				<p>{{post.get_field('cta_right_text')}}</p>
+			</a>
+		</section>
+	</article>
+{% endblock %}

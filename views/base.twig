@@ -1,0 +1,80 @@
+{% block html_head %}
+	{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		{% if post.get_field('hero_content') %}
+			<section class="hero">
+				<div id="oil"></div>
+				<div class="wrapper">
+					<div class="row-fluid">
+						<div class="span6">
+							{{post.get_field('hero_content')}}
+						</div>
+						<div class="span6">
+							<img src="{{TimberImage(post.get_field('hero_image')).src}}" width="{{TimberImage(post.get_field('hero_image')).width}}" height="{{TimberImage(post.get_field('hero_image')).height}}" />
+						</div>
+					</div>
+				</div>
+			</section>
+		{% endif %}
+		<header class="site-header">
+			{% block header %}
+				<div class="site-header-top">
+					<div class="wrapper">
+						<h1 class="site-logo" role="banner">
+							<a class="site-logo-link" href="{{site.link}}" rel="home">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.49 85.35" width="208" height="77">
+								    <title>HalenHardy</title>
+							        <path d="M35.6 5.13c10.1 0 20.22 3.12 30.9 9.35 1.34 28.12-4.5 54.2-30.9 65.4C9.28 68.68 3.4 42.6 4.74 14.48 15.4 8.25 25.5 5.13 35.6 5.13m0-5.13C24.9 0 13.94 3.2 2.44 10.1L.3 11.38Q.27 12.7.2 14C-1.3 41.4 4.85 72.07 34.3 84.73l1.33.58 1.34-.57C66.38 72.1 72.5 41.43 71 14l-.1-2.66-2.1-1.24C57.3 3.2 46.3 0 35.6 0z" fill="#fff" />
+							        <path fill="#fff" d="M89.5 30.67h4.1v18.4h-4.1V41.8h-7.32v7.24h-4.1v-18.4h4.1v7.7h7.3zM109.75 49.06H106v-1.7a4.65 4.65 0 0 1-3.77 1.9A5.62 5.62 0 0 1 98.5 48a4.34 4.34 0 0 1-1.5-3.5 3.67 3.67 0 0 1 1.58-3.26 7.56 7.56 0 0 1 4.3-1.08h2.96v-.08q0-2.26-2.4-2.26a6.45 6.45 0 0 0-2.16.4 7 7 0 0 0-1.93 1L97.6 36.7a10.56 10.56 0 0 1 6.36-2 6.58 6.58 0 0 1 4.16 1.32 4.88 4.88 0 0 1 1.63 4zm-4-5.4V43h-2.47q-2.37 0-2.37 1.47a1.36 1.36 0 0 0 .58 1.17 2.75 2.75 0 0 0 1.62.4 2.87 2.87 0 0 0 1.85-.63 2.1 2.1 0 0 0 .83-1.74zM117.3 49.06h-3.95V29.54h3.95zM133.3 47a7.9 7.9 0 0 1-5.62 2.26 7.45 7.45 0 0 1-5.33-2 7 7 0 0 1-2.1-5.26 6.87 6.87 0 0 1 2.14-5.32 7.24 7.24 0 0 1 5.05-2 7.32 7.32 0 0 1 5 1.76 6.06 6.06 0 0 1 2 4.84v2.1h-10.3a2.8 2.8 0 0 0 1.2 1.9 3.86 3.86 0 0 0 2.32.74 4.54 4.54 0 0 0 3.42-1.4zm-3.8-8.4a3 3 0 0 0-2-.67 3.56 3.56 0 0 0-2.13.7 2.72 2.72 0 0 0-1.13 1.93h6.2a2.8 2.8 0 0 0-.93-1.95zM141.25 41.17v7.9h-3.95V34.9h3.95v1.58a5.52 5.52 0 0 1 4-1.82 5 5 0 0 1 3.75 1.58 5.83 5.83 0 0 1 1.5 4.2v8.6h-3.94v-8q0-3.25-2.4-3.25a2.87 2.87 0 0 0-2.05.85 3.34 3.34 0 0 0-.85 2.52zM165.92 30.67H170v18.4h-4.1V41.8h-7.3v7.24h-4.1v-18.4h4.1v7.7h7.3zM186.18 49.06h-3.7v-1.7a4.65 4.65 0 0 1-3.78 1.9 5.62 5.62 0 0 1-3.78-1.3 4.34 4.34 0 0 1-1.53-3.46 3.67 3.67 0 0 1 1.6-3.26 7.56 7.56 0 0 1 4.3-1.08h2.96v-.08q0-2.26-2.4-2.26a6.45 6.45 0 0 0-2.16.4 7 7 0 0 0-1.93 1L174 36.7a10.56 10.56 0 0 1 6.37-2 6.58 6.58 0 0 1 4.18 1.3 4.88 4.88 0 0 1 1.63 4zm-4-5.4V43h-2.47q-2.36 0-2.36 1.47a1.36 1.36 0 0 0 .57 1.17 2.75 2.75 0 0 0 1.63.4 2.87 2.87 0 0 0 1.85-.63 2.1 2.1 0 0 0 .83-1.74zM197.23 38.37a3 3 0 0 0-2.63 1.25 5.68 5.68 0 0 0-.87 3.3v6.13h-3.95V34.9h3.95v1.87a6.62 6.62 0 0 1 1.9-1.47 5.2 5.2 0 0 1 2.34-.63v3.7zM206.1 49.27a6 6 0 0 1-4.5-2.13 7.5 7.5 0 0 1-2-5.3 7.2 7.2 0 0 1 1.92-5.16 6 6 0 0 1 4.5-2 5.4 5.4 0 0 1 4.2 1.82v-6.96h3.96v19.52h-3.95V47.2a5.12 5.12 0 0 1-4.14 2.07zM203.6 42a3.92 3.92 0 0 0 1 2.8 3.18 3.18 0 0 0 2.4 1.1 3 3 0 0 0 2.33-1.1 4.1 4.1 0 0 0 1-2.8 4.3 4.3 0 0 0-1-2.88A3 3 0 0 0 207 38a3.06 3.06 0 0 0-2.4 1.16 4.23 4.23 0 0 0-1 2.84zM220.4 54.64a5.74 5.74 0 0 1-3.93-1.64l1.78-3a3 3 0 0 0 2.05 1 1.15 1.15 0 0 0 .95-.54 1.9 1.9 0 0 0 .4-1.14q0-.6-5.48-14.42h4.2l3.46 8.8 3.45-8.8h4.2l-6.57 16.68a4.7 4.7 0 0 1-1.8 2.25 4.86 4.86 0 0 1-2.7.8z" />
+							        <path d="M35.6 16A23.38 23.38 0 1 0 59 39.43 23.38 23.38 0 0 0 35.6 16zm-2 33h-5.5l1.27-1.32v-6.3H21l2.63 2.5V49h-5.5l1.27-1.34V31.9l-1.34-1.27h5.58v7.2h5.75V31.9l-1.34-1.27h5.57zm18.63 0h-4.17v-7.57h-8.38l2.63 2.5v3.9l1.3 1.22h-5.54V30.62h5.5l-1.26 1.32v5.86h5.75v-7.18h5.47l-1.22 1.3v15.9l1.3 1.25h-1.35z" fill="#047ba4" />
+								</svg>
+							</a>
+						</h1>
+						<div class="text-right">
+							<a class="phone" href="tel:1-844-774-5587">1.844.774.5587</a>
+							<a class="button account" href="/my-account/">
+								<svg class="icon icon-user"><use xlink:href="#icon-user"></use></svg>
+								My Account
+							</a>
+							<a class="button cart" href="/cart/">
+								<svg class="icon icon-shopping-cart"><use xlink:href="#icon-shopping-cart"></use></svg>
+								Cart
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="site-header-bottom">
+					<div class="wrapper">
+						{% include 'partials/nav.twig' %}
+					</div>
+				</div>
+			{% endblock %}
+		</header>
+
+		<main role="main" class="site-main" class="{{sidebar_class}}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</main>
+{# 		{% if sidebar %}
+			<aside class="main-sidebar">
+				{{sidebar}}
+			</aside>
+		{% endif %} #}
+
+		<footer class="site-footer">
+			{% block footer %}
+				<div class="wrapper">
+					{% include 'footer.twig' %}
+				</div>
+			{% endblock %}
+		</footer>
+		{{ function('wp_footer') }}
+
+	</body>
+</html>

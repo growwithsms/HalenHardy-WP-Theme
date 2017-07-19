@@ -1,0 +1,143 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<article class="product-request-form-page-content post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section>
+			<div class="article-header wrapper">
+				<h1>{{post.title}}</h1>
+			</div>
+			<div class="article-body-wrapper">
+				<div class="article-body wrapper">
+					{{post.content}}
+					<form class="product-request-form">
+						<div class="products-wrapper">
+							{% for product_group in post.get_field('product_group') %}
+								<div class="row-fluid">
+								    {% if product_group.acf_fc_layout == 'regular_product' %}
+								    	<div class="span3 product-image-name text-center">
+									        <img src="{{TimberImage(product_group.image).src}}" />
+									        <p>{{product_group.name}}</p>
+								        </div>
+								        <div class="span9 product-line-items">
+								        	<table>
+									        	<tr class="header-row">
+									        		<th>Item #</th>
+								        			<th>Description</th>
+								        			<th>MSRP</th>
+								        			<th>Quantity</th>
+								        		</tr>
+									        	{% for item in product_group.line_item %}
+									        		<tr class="line-item-row">
+										        		<td>{{ item.item_number }}</td>
+										        		<td>{{ item.description }}</td>
+										        		<td>{{ item.msrp }}</td>
+										        		<td><input type="number" value="0"></td>
+									        		</tr>
+									        	{% endfor %}
+									        </table>
+								        </div>
+								    {% endif %}
+								    {% if product_group.acf_fc_layout == 'preferred_product' %}
+								    	<div class="span3 product-image-name text-center">
+									        <img src="{{TimberImage(product_group.image).src}}" />
+									        <p>{{product_group.name}}</p>
+								        </div>
+								        <div class="span9 product-line-items">
+								        	<table>
+									        	<tr class="header-row">
+									        		<th>Item #</th>
+								        			<th>Description</th>
+								        			<th>MSRP</th>
+								        			<th>Preferred</th>
+								        			<th>Quantity</th>
+							        			</tr>
+									        	{% for item in product_group.line_item %}
+									        		<tr class="line-item-row">
+										        		<td>{{ item.item_number }}</td>
+										        		<td>{{ item.description }}</td>
+										        		<td>{{ item.msrp }}</td>
+										        		<td>{{ item.preferred_pricing }}</td>
+										        		<td><input type="number" value="0"></td>
+										        	</tr>
+									        	{% endfor %}
+									        </table>
+								        </div>
+								    {% endif %}
+								</div>
+							{% endfor %}
+						</div>
+						<div class"customer-details-wrapper">
+							<h2>Your Info</h2>
+							<div class="row-fluid">
+								<div class="span6">
+									<div class="row-fluid">
+										<div class="span6">
+											<p>
+												<label>First Name:<br>
+													<input type="text">
+												</label>
+											</p>
+										</div>
+										<div class="span6">
+											<p>
+												<label>Last Name:<br>
+													<input type="text">
+												</label>
+											</p>
+										</div>
+									</div>
+									<p>
+										<label>Branch:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>Order Date:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>Required By:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>Notes:<br>
+											<textarea></textarea>
+										</label>
+									</p>
+								</div>
+								<div class="span6">
+									<h3>Shipping Address</h3>
+									<p>
+										<label>Street:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>City:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>State:<br>
+											<input type="text">
+										</label>
+									</p>
+									<p>
+										<label>Zip:<br>
+											<input type="text">
+										</label>
+									</p>
+								</div>
+							</div>
+						</div>
+						<p class="text-center">
+							<button type="submit" class="button">Send Product Request</button>
+						</p>
+					</form>
+				</div>
+			</div>
+		</section>
+	</article>
+{% endblock %}

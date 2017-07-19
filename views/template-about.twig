@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<article class="about-page-content post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section>
+			<div class="wrapper">
+				<h1>{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="wrapper">
+				<h2 class="text-center">{{post.get_field('the_story_header')}}</h2>
+				<div class="column-count-2">
+					{{post.get_field('the_story')}}
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="wrapper">
+				<h2 class="text-center">{{post.get_field('awards_&_recognition_header')}}</h2>
+				<div class="row-fluid">
+					<div class="span6">
+						{{post.get_field('awards_&_recognition_left')}}
+					</div>
+					<div class="span6">
+						{{post.get_field('awards_&_recognition_right')}}
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="wrapper">
+				<h2>Our Team</h2>
+				<div class="team-members">
+					{% for team_member in post.get_field('team_members') %}
+				        <div class="team-member text-center">
+				            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
+				            <h4>{{team_member.name}}</h4>
+				            <p>{{team_member.title}}</p>
+				        </div>
+				    {% endfor %}
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="wrapper">
+				{{post.get_field('guarantee')}}
+			</div>
+		</section>
+	</article>
+{% endblock %}
