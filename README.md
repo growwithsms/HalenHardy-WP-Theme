@@ -1,4 +1,4 @@
-# Timber Starter Theme (Tackle Box version)
+# HalenHardy's WordPress Theme!
 
 With comments!
 
