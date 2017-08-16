@@ -2,6 +2,15 @@
 // ---
 // Typography
 // ---
+html {
+    font-size: 14px;
+    @include bp(sm) {
+        font-size: 16px;
+    }
+    @include bp(xl) {
+        font-size: 18px;
+    }
+}
 
 body {
 	font-family: $body-font;
@@ -68,6 +77,21 @@ small {
 	font-size: $size-sml;
 }
 
+
+blockquote {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-style: italic;
+	cite {
+	    display: block;
+	    font-size: 1rem;
+	    margin-top: .25rem;
+		&:before {
+		    content: "~ ";
+		}
+	}
+}
 
 // Icons
 .icon {

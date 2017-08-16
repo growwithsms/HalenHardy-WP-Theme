@@ -1,20 +1,66 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	<div class="anchor-navigation">
+		<ul>
+			<li><a class="active" href="#top"><span>Overview</span></a></li>
+			<li><a href="#golden-days"><span>1960s</span></a></li>
+			<li><a href="#early-days"><span>1970s</span></a></li>
+			<li><a href="#middle-days"><span>1980s/1990s</span></a></li>
+			<li><a href="#later-days"><span>2000s</span></a></li>
+			<li><a href="#future"><span>Present &amp; Future</span></a></li>
+		</ul>
+	</div>
 	<article class="about-page-content post-type-{{post.post_type}}" id="post-{{post.ID}}">
-		<section>
-			<div class="wrapper">
+		<section id="top">
+			<div class="wrapper text-center">
 				<h1>{{post.title}}</h1>
 				<div class="article-body">
 					{{post.content}}
 				</div>
 			</div>
 		</section>
-		<section>
+		<section id="golden-days">
 			<div class="wrapper">
-				<h2 class="text-center">{{post.get_field('the_story_header')}}</h2>
+				<h2 class="text-center">1960s</h2>
 				<div class="column-count-2">
 					{{post.get_field('the_story')}}
+				</div>
+			</div>
+		</section>
+		<section id="early-days">
+			<div class="wrapper">
+				<h2 class="text-center">1970s</h2>
+				<div class="column-count-2">
+					{{post.get_field('the_story_early_days')}}
+				</div>
+			</div>
+		</section>
+		<section id="middle-days">
+			<div class="wrapper">
+				<h2 class="text-center">1980s/1990s</h2>
+				<div class="column-count-2">
+					{{post.get_field('the_story_middle_days')}}
+				</div>
+			</div>
+		</section>
+		<section id="later-days">
+			<div class="wrapper">
+				<h2 class="text-center">2000s</h2>
+				<div class="column-count-2">
+					{{post.get_field('the_story_later_days')}}
+				</div>
+			</div>
+		</section>
+		<section id="future">
+			<div class="wrapper">
+				<h2 class="text-center">Today &amp; The Future</h2>
+				<div class="row-fluid">
+					<div class="span2"></div>
+					<div class="span8">
+						{{post.get_field('the_story_future')}}
+					</div>
+					<div class="span2"></div>
 				</div>
 			</div>
 		</section>
@@ -31,23 +77,78 @@
 				</div>
 			</div>
 		</section>
-		<section>
+		<section class="jazz-band">
+			<blockquote>
+				"We’re a jazz band, not an orchestra."
+				<cite>Donny Beaver</cite>
+			</blockquote>
+		</section>
+		<section id="our-team">
 			<div class="wrapper">
-				<h2>Our Team</h2>
+				<h2 class="text-center">Our Team</h2>
 				<div class="team-members">
 					{% for team_member in post.get_field('team_members') %}
-				        <div class="team-member text-center">
-				            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
-				            <h4>{{team_member.name}}</h4>
-				            <p>{{team_member.title}}</p>
+				        <div class="team-member">
+				        	<div class="team-member-front text-center">
+					            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
+					            <h4>{{team_member.name}}</h4>
+					            <p>{{team_member.title}}</p>
+					        </div>
+				            <div class="team-member-back">
+				            	<p>{{team_member.one_liner}}</p>
+				            </div>
+				        </div>
+				    {% endfor %}
+					{% for team_member in post.get_field('customer_support_members') %}
+				        <div class="team-member">
+				        	<div class="team-member-front text-center">
+					            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
+					            <h4>{{team_member.name}}</h4>
+					            <p>{{team_member.title}}</p>
+					        </div>
+				            <div class="team-member-back">
+				            	<p>{{team_member.one_liner}}</p>
+				            </div>
+				        </div>
+				    {% endfor %}
+					{% for team_member in post.get_field('accounting_members') %}
+				        <div class="team-member">
+				        	<div class="team-member-front text-center">
+					            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
+					            <h4>{{team_member.name}}</h4>
+					            <p>{{team_member.title}}</p>
+					        </div>
+				            <div class="team-member-back">
+				            	<p>{{team_member.one_liner}}</p>
+				            </div>
+				        </div>
+				    {% endfor %}
+					{% for team_member in post.get_field('warehouse_members') %}
+				        <div class="team-member">
+				        	<div class="team-member-front text-center">
+					            <img src="{{TimberImage(team_member.photo).src}}" height="{{TimberImage(team_member.photo).height}}" width="{{TimberImage(team_member.photo).width}}" alt="{{team_member.name}}"/>
+					            <h4>{{team_member.name}}</h4>
+					            <p>{{team_member.title}}</p>
+					        </div>
+				            <div class="team-member-back">
+				            	<p>{{team_member.one_liner}}</p>
+				            </div>
 				        </div>
 				    {% endfor %}
 				</div>
 			</div>
 		</section>
-		<section>
+		<section id="guarantee">
 			<div class="wrapper">
-				{{post.get_field('guarantee')}}
+				<h2 class="text-center">Our Guarantee</h2>
+				<div class="row-fluid">
+					<div class="span6">
+						{{post.get_field('guarantee')}}
+					</div>
+					<div class="span6">
+						{{post.get_field('guarantee_form_embed')}}
+					</div>
+				</div>
 			</div>
 		</section>
 	</article>

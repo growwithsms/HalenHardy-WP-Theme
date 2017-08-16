@@ -11,7 +11,8 @@
 // General Selectors
 // ---
 
-img {
+img,
+.img {
 	max-width: 100%;
 	height: auto;
 	vertical-align: bottom;
@@ -40,6 +41,10 @@ table {
 		color: $white;
 		white-space: nowrap;
 		display: inline-block;
+		&.site-logo-link {
+		    display: block;
+		    line-height: 0;
+		}
 	}
 	.phone {
 		font-size: 2rem;
@@ -67,17 +72,28 @@ table {
 	background: $white;
 }
 
+@media (max-width: 767px) {
+
+	.site-header-top .phone {
+	 	width: 100%;
+		margin: 0;
+	}
+
+}
 
 // ---
 // Main Site Content
 // ---
 
 .wrapper {
-	max-width: $screen-xlg;
+	max-width: $screen-xl;
 	width: 93%;
 	margin: 0 auto;
 }
-
+.secondary-header {
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+}
 .article-body-wrapper {
 	background: $white;
 }

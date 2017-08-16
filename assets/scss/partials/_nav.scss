@@ -1,5 +1,8 @@
 .nav-main {
-    overflow: hidden;
+    overflow-x: scroll;
+    @include bp(sm) {
+        overflow-x: hidden;
+    }
     transition: all 0.75s ease;
 }
 
@@ -8,8 +11,15 @@
     padding-left: 0;
     text-transform: uppercase;
     display: flex;
-    justify-content: space-around;
     font-weight: 500;
+    margin: 0;
+    justify-content: flex-start;
+    @include bp(md) {
+        justify-content: flex-end;
+    }
+    .nav-item {
+        display: block;
+    }
     a {
         color: $black;
         &:hover,
@@ -17,14 +27,9 @@
             color: $blue;
         }
     }
-    @include bp(md) {
-        justify-content: flex-end;
-    }
 }
 
 .nav-item-link {
-    padding: 1.4rem .2rem;
-    @include bp(md) {
-        padding: 1.4rem;
-    }
+    padding: 1.4rem;
+    display: block;
 }

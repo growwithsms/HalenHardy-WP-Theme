@@ -28,41 +28,113 @@
 .blocky-grid {
 	display: flex;
 	flex-wrap: wrap;
+	h3 {
+		font-size: 2.75rem;
+		margin-bottom: 0;
+	}
 }
 .blocky-grid-item {
 	padding: $size-base*2;
 	width: 100%;
-	&:nth-child(odd) {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 33vh;
+	&:nth-child(even) {
 		color: $white;
 		background-color: $blue;
+		a {
+			color: $white;
+		}
 	}
-	&.video {
-		padding: 0;
-		background-color: $black;
-	}
-	&.blog {
-		.wprss-feed-meta {
-		    display: none;
+	&.small {
+		position: relative;
+	    .arrow-icon {
+	    	position: absolute;
+	    	bottom: $size-base;
+	    	right: $size-base;
+	    	border: 2px solid;
+		    fill: currentColor;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    padding: .5rem;
+	    }
+	    &.text,
+	    &.cart,
+	    &.blog.listing {
+	    	.blocky-grid-item--inner_hover {
+			    transition: all 200ms ease;
+			    margin-top: 1rem;
+			}
+			h3 {
+				transition: all 200ms ease;
+				opacity: 1;
+			}
 		}
-		ul.rss-aggregator {
-		    list-style: none;
-		    margin: 0;
-		    padding: 0;
+		&.text {
+			background-image: url("../img/transparent-oil-top-right.svg");
+			background-position: top right;
+			background-repeat: no-repeat;
+			background-size: cover;
+			overflow: hidden;
 		}
-
-		li.feed-item {
-		    margin: 0;
+		&.cart {
+			overflow: hidden;
+			background: $white;
+			color: $blue;
+			.blocky-grid-item--inner_hover {
+			    position: absolute;
+			    opacity: 0;
+			    transform: translate(40%, 0%);
+			}
+			&:hover {
+				.blocky-grid-item--inner_hover {
+				    opacity: 1;
+				    transform: translate(40%, -100%);
+				}
+				.blocky-grid-item--inner h3 {
+				    transform: translate(0%, -100%);
+				    opacity: 0;
+				}
+			}
 		}
-
-		li.feed-item a {
-		    color: #fff;
-		    font-size: 2em;
+		&.blog.listing,
+		&.text {
+			.blocky-grid-item--inner_hover {
+			    position: absolute;
+			    opacity: 0;
+			    transform: translate(40%, 0%);
+			}
+			&:hover {
+				.blocky-grid-item--inner_hover {
+				    opacity: 1;
+				    transform: translate(40%, -100%);
+				}
+				.blocky-grid-item--inner h3 {
+				    transform: translate(0%, -100%);
+				    opacity: 0;
+				}
+			}
 		}
 	}
 	&.medium {
 		background-image: url("../img/transparent-oil-top-right.svg");
 		background-position: top right;
 		background-repeat: no-repeat;
+		background-color: $blue;
+		color: $white;
+	}
+	&.large {
+		background-image: url('/wp-content/uploads/2016/04/dark-bg-oil.jpg');
+		background-color: $black;
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		text-align: center;
+		min-height: 50vh;
+		flex-wrap: wrap;
+		color: $white;
 	}
 	@include bp(md) {
 		min-height: 25vw;
@@ -73,19 +145,72 @@
 			width: 50%;
 		}
 		&.large {
-			width: 100%;
-			text-align: center;
 			min-height: 50vw;
-			display: flex;
-			align-items: center;
-			flex-wrap: wrap;
-			justify-content: center;
+			h3 {
+				font-size: 3.5rem;
+			}
+			.button {
+				margin-top: 1rem;
+			}
 		}
     }
+    &.video {
+		padding: 0;
+		background-color: $black;
+		> div {
+			flex: 1;
+		}
+	}
+	&.blog {
+		&.post:after {
+	    	content:"";
+	    	width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 50px 50px 0 50px;
+			border-color: $grey transparent transparent transparent;
+			position: absolute;
+			top: 100%;
+			z-index: 1;
+	    }
+	    @include bp(md) {
+		    &.post:after {
+				border-width: 50px 0 50px 50px;
+				border-color: transparent transparent transparent $grey;
+				left: 100%;
+				top: initial;
+		    }
+		}
+		&.listing h3 {
+			margin-bottom: 0;
+		}
+		.wprss-feed-meta {
+		    display: none;
+		}
+		ul.rss-aggregator {
+		    list-style: none;
+		    margin: 0;
+		    padding: 0;
+		}
+		li.feed-item {
+		    margin: 0;
+		}
+		li.feed-item a {
+		    color: #fff;
+		    font-size: 2em;
+		}
+	}
+}
+.blocky-grid-item--inner > *:first-child {
+    margin-top: 0;
+}
+.blocky-grid-item--inner > *:last-child {
+    margin-bottom: 0;
 }
 .testimonials {
 	padding: $size-base*2 $size-base;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 	background-color: $white;
@@ -98,4 +223,15 @@
 	@include bp(md) {
 		padding-left: 0;
 	}
+}
+@media (min-width:48rem) {
+    .large-section .row-fluid {
+        display: flex;
+    }
+
+    .large-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }

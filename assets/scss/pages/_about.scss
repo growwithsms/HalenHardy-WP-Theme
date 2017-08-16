@@ -3,27 +3,97 @@
 // ---
 .about-page-content {
 	> section {
-		padding: $size-base*3 $size-base;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		padding: $size-base*6 $size-base;
+		position: relative;
+		blockquote {
+			font-size: 3rem;
+			margin: 2rem;
+			text-align: center;
+		}
+		&:not(:last-child):after {
+		    content: "";
+		    height: $size-base*4;
+		    width: 2px;
+		    display: block;
+		    left: 50%;
+		    transform: translateX(-50%);
+		    background: $black;
+		    position: absolute;
+		    bottom: -$size-base*2;
+		    z-index: 1;
+		    opacity: .5;
+		}
+		&:not(:last-child):before {
+		    content: "";
+		    height: 0.5rem;
+		    width: 0.5rem;
+		    position: absolute;
+		    bottom: -2.3rem;
+		    left: 50%;
+		    transform: translateX(-50%);
+		    background: $black;
+		    border-radius: 50%;
+		    z-index: 1;
+		}
 		&:nth-child(even) {
 			background: $blue;
 			color: $white;
+			a {
+				color: $white;
+				text-decoration: underline;
+			}
 		}
 	}
 }
-
 .team-members {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .team-member {
-    flex: 1;
-    min-width: 200px;
-    margin: 1rem;
+    width: 300px;
+    margin-bottom: 1rem;
+    perspective: 1000px;
+    position: relative;
+    &-front {
+    	backface-visibility: hidden;
+    	transition: 0.6s;
+		transform-style: preserve-3d;
+		transform: rotateY(0deg);
+		min-height: 100%;
+		h4,
+		p {
+			padding: 0 1rem;
+		}
+    }
+    &-back {
+    	backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+		transition: 0.6s;
+		transform-style: preserve-3d;
+		transform: rotateY(180deg);
+		background: $white;
+    	cursor: pointer;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+    	text-align: center;
+    }
+    &.active .team-member-back {
+    	transform: rotateY(0deg);
+    }
+    &.active .team-member-front {
+    	transform: rotateY(-180deg);
+    }
+    &:hover .team-member-front {
+    	background: $white;
+    	cursor: pointer;
+    }
     img {
     	background: $white;
     }
@@ -33,4 +103,31 @@
 	p {
 	    margin-top: $size-base/2;
 	}
+}
+
+.jazz-band {
+	background: $blue url('/wp-content/uploads/2017/08/jazz-band.jpg') no-repeat center center/cover !important;
+	background-attachment: fixed !important;
+}
+#golden-days {
+	background: $blue url('/wp-content/uploads/2017/08/River-Blue.jpg') no-repeat bottom center/cover !important;
+}
+#early-days {
+    padding-bottom: 0;
+    img {
+    	margin-top: 0;
+    }
+}
+#middle-days {
+	background: $white url('/wp-content/uploads/2017/08/80s-BG.jpg') no-repeat center center/cover !important;
+}
+#later-days {
+	background: $white url('/wp-content/uploads/2017/08/2000s-Sleeping-BG.jpg') no-repeat center center/cover !important;
+	background-attachment: fixed !important;
+}
+#future {
+	background: $blue url('/wp-content/uploads/2017/08/team-bg.jpg') no-repeat center center/cover !important;
+}
+#guarantee {
+	background: $blue url('/wp-content/uploads/2017/08/spilltration-bg.jpg') no-repeat center center/cover !important;	
 }

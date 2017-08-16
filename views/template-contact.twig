@@ -1,0 +1,25 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section>
+			<div class="article-header wrapper">
+				<h1 class="text-center">{{post.title}}</h1>
+				<p class="secondary-header text-center">{{post.get_field('secondary_header')}}</p>
+			</div>
+			<div class="article-body-wrapper">
+				<div class="article-body wrapper">
+					<div class="row-fluid">
+						<div class="span6">
+							{{post.content}}
+						</div>
+						<div class="span6">
+							<h3>Send us a Message</h3>
+							{{post.get_field('column_right')}}
+						</div>
+				</div>
+			</div>
+		</section>
+	</article>
+{% endblock %}

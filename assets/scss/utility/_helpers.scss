@@ -25,14 +25,16 @@
 	margin-bottom: $size-base;
 }
 .column-count-2 {
-	column-count: 2;
-	> * {
-		break-inside: avoid;
-		&:first-child {
-			margin-top: 0;
-		}
-		&:last-child {
-			margin-bottom: 0;
+	@include bp(sm) {
+		column-count: 2;
+		> * {
+			break-inside: avoid;
+			&:first-child {
+				margin-top: 0;
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }
@@ -46,4 +48,15 @@
 	    margin-top: $size-base;
 	    margin-bottom: $size-base;
 	}
+}
+
+.fill-parent {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
 }

@@ -93,7 +93,7 @@ function my_scripts() {
 	// Enqueue our stylesheet and JS file with a jQuery dependency.
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
 	wp_enqueue_style( 'my-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
-	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/assets/js/main-dist.js', array('jquery'), '1.0.0', true );
+	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), '1.0.0', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
@@ -110,4 +110,15 @@ function timber_set_product( $post ) {
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
+    add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 }
+
+// remove parapraph tags from images
+function filter_ptags_on_images($content) {
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('acf_the_content', 'filter_ptags_on_images', 9999);
+add_filter('the_content', 'filter_ptags_on_images', 9999);

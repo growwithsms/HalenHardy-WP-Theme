@@ -3,34 +3,3 @@
 // Shameful Styles
 // ---
 
-// PAGE ANIMATIONS
-.page-animation {
-    background: $red;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 100px;
-    transition: transform 200ms ease;
-    transform-origin: bottom center;
-    transform: scaleY(0) translateY(0);
-}
-
-.is-exiting .page-animation {
-    transform: scaleY(10) translateY(-100%);
-}
-
-// Woocommerce
-.woocommerce-breadcrumb,
-.product_meta {
-    margin: $size-base 0;
-}
-.onsale {
-    position: absolute;
-    background: red;
-    color: #fff;
-    padding: .275rem 0.55rem;
-}
-figure.woocommerce-product-gallery__wrapper {
-    margin: 0;
-}

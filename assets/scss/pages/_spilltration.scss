@@ -3,54 +3,135 @@
 // ---
 .spilltration-page-content {
 	section:not(.cta-section) {
-		padding: $size-base*3 $size-base;
-		&.spilltration-feature {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			img {
-				border-radius: 50%;
-				margin-right: 2em;
-				width: 25%
-			}
-			.text-wrapper {
-				width: 75%;
-			}
-			.wrapper {
-				display: flex;
-				align-items: center;
-			}
-			&:nth-child(even) {
-				background: $blue;
-				color: $white;
-				.wrapper img {
-					order: 2;
-					margin-right: 0;
-					margin-left: 2em;
-				}
-			}
+		padding-top: $size-base*3;
+	}
+}
+
+.anchor-navigation {
+	display: none;
+	z-index: 1;
+	@include bp(md) {
+		display: block;
+	}
+    position: fixed;
+    left: 1rem;
+    top: 50%;
+    transform: translate(0,-50%);
+    &.stuck {
+    	position: fixed;
+    }
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+	}
+	a {
+	    width: 1rem;
+	    height: 1rem;
+	    background: $white;
+	    border: .15rem solid lighten($blue, 15%);
+	    border-radius: 50%;
+	    display: block;
+	    margin-bottom: 1rem;
+	    position: relative;
+	    color: $black;
+	    &.active {
+	    	background: lighten($blue, 5%);
+	    }
+	    span {
+		    opacity: 0;
+		    display: block;
+		    white-space: nowrap;
+		    position: absolute;
+		    font-size: .875rem;
+		    top: 50%;
+		    left: 100%;
+		    margin-left: 10px;
+		    transform: translate(-5px,-50%);
+		    transition: all 200ms ease;
+		    background: rgba(255, 255, 255, 0.75);
+		    border-radius: 1rem;
+		    padding: 0 .25rem;
+		}
+		&:hover span,
+		&:focus span,
+		&.active span {
+			opacity: 1;
+			transform: translate(0px,-50%);
 		}
 	}
-	.cta-section {
-		display: flex;
-		> a {
-			padding: 6rem 2rem;
-			flex: 1;
-			background-position: center;
-			background-size: cover;
-			color: #fff;
+}
+.cornerstone-content > div {
+	padding: 0 1rem;
+	@include bp(md) {
+		padding: 0 0;
+	}
+	.slideshow-window {
+	    padding-bottom: 16.25% !important;
+	}
+	.wp-caption {
+	    margin: 0 auto;
+	    border: 0 none;
+	    position: relative;
+	    background: none;
+		p.wp-caption-text {
 			background: $blue;
-			&:first-child {
-				background: darken($blue, 5%);
-			}
-			&:hover,
-			&:focus {
-				background: lighten($blue, 5%);
-			}
-			p {
-				font-size: 2em;
-				max-width: 90%;
+			padding: 1rem;
+		    color: white;
+		    font-weight: bold;
+		    font-size: 2rem;
+		    letter-spacing: 1px;
+		    line-height: 1.2;
+			@include bp(md) {
+				background: none;
+			    position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%,-50%);
 			}
 		}
 	}
+	.aligncenter {
+		margin-bottom: 2rem;
+	}
+}
+.cornerstone-content > div > *:not(.aligncenter):not(video):not(blockquote) {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cornerstone-content > div > h2,
+.cornerstone-content > div > h3 {
+	text-align: center;
+	max-width: 45rem !important;
+}
+.cornerstone-content > div > h2 {
+	margin-top: 4rem;
+}
+.cornerstone-content > div > h4,
+.cornerstone-content > div > h3 {
+	margin-top: 2.5rem;
+}
+.cornerstone-content > div > h4 {
+	margin-bottom: 1rem;
+}
+.cornerstone-content > div > blockquote {
+		background: $white;
+		padding: 1rem;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 2rem;
+		margin-bottom: 0;
+		line-height: 1.7;
+		@include clearfix;
+		h2,
+		h3,
+		h4 {
+			font-weight: 300;
+		}
+}
+.cornerstone-content >  div > blockquote > * {
+	max-width: 40rem;
+	margin-left: auto;
+	margin-right: auto;
 }

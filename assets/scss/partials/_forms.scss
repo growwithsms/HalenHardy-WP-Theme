@@ -20,14 +20,9 @@
 label, select {
 	display: block;
 }
-
 label {
+	font-size: .875rem;
 }
-
-input[type="search"] {
-	// Maybe add a nice search icon in the background?
-}
-
 textarea {
 	overflow: auto;
 	vertical-align: top;
@@ -47,10 +42,10 @@ input[type="email"],
 input[type="url"],
 input[type="search"],
 input[type="tel"] {
-
 	width: 100%;
-	border: 1px solid $grey;
-	padding: $size-base/2 $size-base;
+	border: 1px solid darken($grey, 10%);
+	padding: $size-base/2 $size-base/1.5;
+	font-size: .875rem;
 	&:focus {
 		border-color: $color-accent-med;
 	}
@@ -65,4 +60,18 @@ input[type="checkbox"] {
 .qty {
     max-width: 5.5rem;
     margin-bottom: 0.55rem;
+}
+
+.hs-form-field {
+    margin-bottom: 0.5rem;
+}
+ul.hs-error-msgs.inputs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: red;
+    opacity: .75;
+    label {
+    	font-size: .75rem;
+    }
 }

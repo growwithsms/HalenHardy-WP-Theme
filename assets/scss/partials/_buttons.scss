@@ -12,12 +12,20 @@
 	text-transform: uppercase;
 	display: inline-block;
 	border: 0 none;
+	margin-right: .25rem;
+	margin-bottom: .5rem;
+	text-align: center;
+	font-weight: 300;
+	border-radius: 0;
+	line-height: 1.5;
 }
 
 // A note about naming: instead of .default-btn, I like to have .btn first so that it's more easily scannable. Change it up as you like!
 
 // Default button
 .button,
+input[type="submit"],
+button,
 .woocommerce a.button, 
 .woocommerce button.button, 
 .woocommerce input.button, 
@@ -32,7 +40,11 @@
 
 // Info button, maybe for "Read More" or something.
 .button-white {
-	@include button($color-notice-info, $color-text-dark);
+	@include button($white, $color-text-dark);
+	&:hover,
+	&:focus {
+		background-color: darken($white, 10%);
+	}
 }
 
 .button-alt,
