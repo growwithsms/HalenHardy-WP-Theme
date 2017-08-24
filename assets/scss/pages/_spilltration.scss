@@ -61,77 +61,78 @@
 		}
 	}
 }
-.cornerstone-content > div {
-	padding: 0 1rem;
-	@include bp(md) {
-		padding: 0 0;
-	}
-	.slideshow-window {
-	    padding-bottom: 16.25% !important;
-	}
-	.wp-caption {
-	    margin: 0 auto;
-	    border: 0 none;
-	    position: relative;
-	    background: none;
-		p.wp-caption-text {
-			background: $blue;
-			padding: 1rem;
-		    color: white;
-		    font-weight: bold;
-		    font-size: 2rem;
-		    letter-spacing: 1px;
-		    line-height: 1.2;
-			@include bp(md) {
-				background: none;
-			    position: absolute;
-			    top: 50%;
-			    left: 50%;
-			    transform: translate(-50%,-50%);
-			}
-		}
-	}
-	.aligncenter {
-		margin-bottom: 2rem;
-	}
-}
-.cornerstone-content > div > *:not(.aligncenter):not(video):not(blockquote) {
-    max-width: 36rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-.cornerstone-content > div > h2,
-.cornerstone-content > div > h3 {
-	text-align: center;
-	max-width: 45rem !important;
-}
-.cornerstone-content > div > h2 {
-	margin-top: 4rem;
-}
-.cornerstone-content > div > h4,
-.cornerstone-content > div > h3 {
-	margin-top: 2.5rem;
-}
-.cornerstone-content > div > h4 {
-	margin-bottom: 1rem;
-}
-.cornerstone-content > div > blockquote {
-		background: $white;
-		padding: 1rem;
-		margin-left: 0;
-		margin-right: 0;
-		margin-top: 2rem;
-		margin-bottom: 0;
-		line-height: 1.7;
-		@include clearfix;
-		h2,
-		h3,
-		h4 {
-			font-weight: 300;
-		}
-}
-.cornerstone-content >  div > blockquote > * {
-	max-width: 40rem;
-	margin-left: auto;
-	margin-right: auto;
-}
+
+// .cornerstone-content > div {
+// 	padding: 0 1rem;
+// 	@include bp(md) {
+// 		padding: 0 0;
+// 	}
+// 	.slideshow-window {
+// 	    padding-bottom: 16.25% !important;
+// 	}
+// 	.wp-caption {
+// 	    margin: 0 auto;
+// 	    border: 0 none;
+// 	    position: relative;
+// 	    background: none;
+// 		p.wp-caption-text {
+// 			background: $blue;
+// 			padding: 1rem;
+// 		    color: white;
+// 		    font-weight: bold;
+// 		    font-size: 2rem;
+// 		    letter-spacing: 1px;
+// 		    line-height: 1.2;
+// 			@include bp(md) {
+// 				background: none;
+// 			    position: absolute;
+// 			    top: 50%;
+// 			    left: 50%;
+// 			    transform: translate(-50%,-50%);
+// 			}
+// 		}
+// 	}
+// 	.aligncenter {
+// 		margin-bottom: 2rem;
+// 	}
+// }
+// .cornerstone-content > div > *:not(.aligncenter):not(video):not(blockquote) {
+//     max-width: 36rem;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+// .cornerstone-content > div > h2,
+// .cornerstone-content > div > h3 {
+// 	text-align: center;
+// 	max-width: 45rem !important;
+// }
+// .cornerstone-content > div > h2 {
+// 	margin-top: 4rem;
+// }
+// .cornerstone-content > div > h4,
+// .cornerstone-content > div > h3 {
+// 	margin-top: 2.5rem;
+// }
+// .cornerstone-content > div > h4 {
+// 	margin-bottom: 1rem;
+// }
+// .cornerstone-content > div > blockquote {
+// 		background: $white;
+// 		padding: 1rem;
+// 		margin-left: 0;
+// 		margin-right: 0;
+// 		margin-top: 2rem;
+// 		margin-bottom: 0;
+// 		line-height: 1.7;
+// 		@include clearfix;
+// 		h2,
+// 		h3,
+// 		h4 {
+// 			font-weight: 300;
+// 		}
+// }
+// .cornerstone-content >  div > blockquote > * {
+// 	max-width: 40rem;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// }

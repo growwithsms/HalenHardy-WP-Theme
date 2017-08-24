@@ -6,21 +6,6 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		{% if post.get_field('hero_content') %}
-			<section class="hero">
-				<div id="oil"></div>
-				<div class="wrapper">
-					<div class="row-fluid">
-						<div class="span6">
-							{{post.get_field('hero_content')}}
-						</div>
-						<div class="span6">
-							<img src="{{TimberImage(post.get_field('hero_image')).src}}" width="{{TimberImage(post.get_field('hero_image')).width}}" height="{{TimberImage(post.get_field('hero_image')).height}}" />
-						</div>
-					</div>
-				</div>
-			</section>
-		{% endif %}
 		<header class="site-header">
 			{% block header %}
 				<div class="site-header-top">

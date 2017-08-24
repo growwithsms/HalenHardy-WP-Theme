@@ -11,11 +11,11 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	display: inline-block;
-	border: 0 none;
+	border: 2px solid $background;
 	margin-right: .25rem;
 	margin-bottom: .5rem;
 	text-align: center;
-	font-weight: 300;
+	font-weight: 700;
 	border-radius: 0;
 	line-height: 1.5;
 }
@@ -38,16 +38,43 @@ button,
 	}
 }
 
-// Info button, maybe for "Read More" or something.
-.button-white {
-	@include button($white, $color-text-dark);
+.button.white {
+	background-color: $white;
+	border-color: $white;
+	color: $dark-blue;
 	&:hover,
 	&:focus {
 		background-color: darken($white, 10%);
+		color: $dark-blue;
 	}
 }
 
-.button-alt,
+.button.orange {
+	background-color: $orange;
+	border-color: $orange;
+	color: $white;
+	position: relative;
+	z-index: 1;
+	padding-left: .75rem;
+    padding-right: .75rem;
+	&:hover,
+	&:focus {
+		background-color: lighten($orange, 10%);
+		color: $white;
+	}
+	&:before {
+		content: "";
+		background: url('../img/oil-button-overlay.png') no-repeat center center/contain;
+		position: absolute;
+	    top: -8px;
+	    left: -10px;
+	    width: calc(100% + 20px);
+	    height: calc(100% + 33px);
+	    z-index: -1;
+	}
+}
+
+.button.alt,
 .woocommerce a.button.alt,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt {
@@ -56,5 +83,19 @@ button,
 	&:focus {
 		background-color: lighten($color-accent-dark, 10%);
 		color: #fff;
+	}
+}
+
+.button.ghost {
+	background-color: transparent;
+	color: $white;
+	&:hover,
+	&:focus {
+		background-color: $white;
+		border-color: $white;
+		color: $black;
+	}
+	svg {
+		vertical-align: text-top;
 	}
 }

@@ -9,11 +9,11 @@
 // Screen sizes
 // ---
 
-$screen-xs: 		28em;
-$screen-sm: 		35em;
-$screen-md: 		52em;
-$screen-lg: 		60em;
-$screen-xl: 		72em;
+$screen-xs: 	28em;
+$screen-sm: 	35em;
+$screen-md: 	52em;
+$screen-lg: 	60em;
+$screen-xl: 	72em;
 
 
 
@@ -21,18 +21,19 @@ $screen-xl: 		72em;
 // Colors
 // ---
 
-$dark-blue:			#27617F;
-$blue: 				#33799F;
-$yellow: 			#EFC94C;
-$orange: 			#E27A3F;
-$red: 				#DF4949;
+$dark-blue:		#27617F;
+$blue: 			#33799F;
+$light-blue:	#00add8;
+$yellow: 		#EFC94C;
+$orange: 		#ff8a00;
+$red: 			#DF4949;
 
-$white: #fefefe;
-$grey: #ebebeb;
-$black: #191919;
+$white: 		#fefefe;
+$grey:			#ebebeb;
+$black: 		#191919;
 
 // These are nice utility colors
-$color-accent-light: 	$yellow;
+$color-accent-light: 	$light-blue;
 $color-accent-med: 		$blue;
 $color-accent-dark:		$dark-blue;
 
@@ -75,11 +76,11 @@ $size-h6:  			$size-sml;
 // Typography
 // ---
 
-$sans-serif: 		'Montserrat', sans-serif;
+$sans-serif: 	'Montserrat', sans-serif;
 $serif:         Georgia, serif;
 
 // Semantic names
 $line-height-base: 	1.5;
 
-$heading-font: 		$sans-serif;
-$body-font: 		  $sans-serif;
+$heading-font: 	$sans-serif;
+$body-font: 	$sans-serif;

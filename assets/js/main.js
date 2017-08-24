@@ -22,13 +22,13 @@ $(function() {
     // All Pages Other than the home page...
     else {
         // Sticky header on tablet/desktop
-        if (matchMedia('only screen and (min-width: 797px)').matches) {
+        // if (matchMedia('only screen and (min-width: 797px)').matches) {
 
-            var sticky = new Waypoint.Sticky({
-                element: $('.site-header-top')[0]
-            });
+        //     var sticky = new Waypoint.Sticky({
+        //         element: $('.site-header-top')[0]
+        //     });
 
-        }
+        // }
     }
 
     // Responsive Embeds

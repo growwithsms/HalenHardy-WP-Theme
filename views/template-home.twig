@@ -1,6 +1,29 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	<div id="oil"></div>
+	{% if post.get_field('hero_content') %}
+		<section class="hero">
+			<div class="hero-top">
+				<div class="wrapper">
+					<h1>{{post.get_field('hero_header')}}</h1>
+					<a href="{{post.get_field('hero_button_url')}}" class="button orange">{{post.get_field('hero_button_text')}}</a>
+				</div>
+			</div>
+			<div class="hero-bottom">
+				<div class="wrapper">
+					<h2>Are you a...</h2>
+					<div class="industries">
+						{% for industry in post.get_field('industries') %}
+					        <a href="{{industry.url}}" class="industry">
+					            <h3>{{industry.name}}</h3>
+					        </a>
+					    {% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
 	<section class="blocky-grid">
 		{% for grid_block in post.get_field('pages_grid') %}
 			{% if grid_block.acf_fc_layout == 'medium_video_block' %}
@@ -15,7 +38,7 @@
 					<div class="blocky-grid-item--inner">
 						<h3>{{grid_block.header}}</h3>
 						<p>{{grid_block.description}}</p>
-						<a href="{{grid_block.button_url}}" class="button grey">{{grid_block.button_text}}</a>
+						<p class="text-right"><a href="{{grid_block.button_url}}" class="button white">{{grid_block.button_text}}</a>
 					</div>
 				</div>
 			{% endif %}
@@ -309,7 +332,10 @@
 					<div class="blocky-grid-item--inner">
 						<h3>{{grid_block.header}}</h3>
 						<p>{{grid_block.description}}</p>
-						<a class="button" href="{{grid_block.button_url}}">{{grid_block.button_text}}</a>
+						<a class="button white ghost arrow" href="{{grid_block.button_url}}">
+							{{grid_block.button_text}} &nbsp; 
+							<svg fill="currentColor" width="18" height="18" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z"/></svg>
+						</a>
 					</div>
 				</div>
 			{% endif %}

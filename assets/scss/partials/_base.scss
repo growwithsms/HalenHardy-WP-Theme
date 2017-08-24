@@ -31,11 +31,12 @@ table {
 }
 .site-header-top {
 	background: $black;
+	position: relative;
+	z-index: 10;
 	&.stuck {
 	  position:fixed;
 	  top:0;
 	  width: 100%;
-	  z-index: 10;
 	}
 	a {
 		color: $white;
@@ -80,6 +81,20 @@ table {
 	}
 
 }
+
+#oil {
+	position: absolute;
+	z-index: 1;
+	pointer-events: none;
+    top: 104px;
+    left: -5px;
+    width: 410px;
+    display: none;
+    @include bp(md) {
+    	display: block;
+    }
+}
+
 
 // ---
 // Main Site Content
