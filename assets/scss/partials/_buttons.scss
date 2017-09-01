@@ -53,25 +53,23 @@ button,
 	background-color: $orange;
 	border-color: $orange;
 	color: $white;
-	position: relative;
-	z-index: 1;
-	padding-left: .75rem;
-    padding-right: .75rem;
 	&:hover,
 	&:focus {
 		background-color: lighten($orange, 10%);
 		color: $white;
 	}
-	&:before {
-		content: "";
-		background: url('../img/oil-button-overlay.png') no-repeat center center/contain;
-		position: absolute;
-	    top: -8px;
-	    left: -10px;
-	    width: calc(100% + 20px);
-	    height: calc(100% + 33px);
-	    z-index: -1;
-	}
+
+	// &:before {
+	// 	content: "";
+	// 	background: url('../img/oil-button-overlay.png') no-repeat center center/contain;
+	// 	position: absolute;
+	//     top: -8px;
+	//     left: -10px;
+	//     width: calc(100% + 20px);
+	//     height: calc(100% + 33px);
+	//     z-index: -1;
+	// }
+	
 }
 
 .button.alt,

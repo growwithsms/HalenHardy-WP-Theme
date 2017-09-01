@@ -116,12 +116,69 @@ table {
 	padding: $size-base 0;
 }
 
+.anchor-navigation {
+	display: none;
+	z-index: 10;
+	@include bp(md) {
+		display: block;
+	}
+    position: fixed;
+    left: 1rem;
+    top: 50%;
+    transform: translate(0,-50%);
+    &.stuck {
+    	position: fixed;
+    }
+	ul {
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+	}
+	a {
+	    width: 1rem;
+	    height: 1rem;
+	    background: $white;
+	    border: .15rem solid lighten($blue, 15%);
+	    border-radius: 50%;
+	    display: block;
+	    margin-bottom: 1rem;
+	    position: relative;
+	    color: $black;
+	    &.active {
+	    	background: lighten($blue, 5%);
+	    }
+	    span {
+		    opacity: 0;
+		    display: block;
+		    white-space: nowrap;
+		    position: absolute;
+		    font-size: .875rem;
+		    top: 50%;
+		    left: 100%;
+		    margin-left: 10px;
+		    transform: translate(-5px,-50%);
+		    transition: all 200ms ease;
+		    background: rgba(255, 255, 255, 0.75);
+		    border-radius: 1rem;
+		    padding: 0 .25rem;
+		}
+		&:hover span,
+		&:focus span,
+		&.active span {
+			opacity: 1;
+			transform: translate(0px,-50%);
+		}
+	}
+}
+
 
 // ---
 // Footer
 // ---
 .site-footer {
 	clear: both;
+	position: relative;
+	z-index: 10;
 	background: $black;
 	color: $white;
 	padding: $size-base;

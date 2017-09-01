@@ -49,6 +49,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    max-width: 970px;
+    margin: auto;
 }
 .team-member {
     width: 300px;
@@ -56,14 +58,19 @@
     perspective: 1000px;
     position: relative;
     &-front {
-    	backface-visibility: hidden;
     	transition: 0.6s;
 		transform-style: preserve-3d;
 		transform: rotateY(0deg);
 		min-height: 100%;
+		background: $white;
 		h4,
 		p {
 			padding: 0 1rem;
+			opacity: 1;
+			transition: all 200ms ease;
+		}
+		p {
+			margin-top: .25rem;
 		}
     }
     &-back {
@@ -73,35 +80,46 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		padding: 1rem;
+		padding: 1rem 1.5rem;
 		transition: 0.6s;
 		transform-style: preserve-3d;
 		transform: rotateY(180deg);
-		background: $white;
-    	cursor: pointer;
+		background: rgba(254, 254, 254, 0.9);
     	display: flex;
+    	flex-wrap: wrap;
     	align-items: center;
     	justify-content: center;
     	text-align: center;
     }
-    &.active .team-member-back {
+    &:hover .team-member-back {
     	transform: rotateY(0deg);
     }
-    &.active .team-member-front {
-    	transform: rotateY(-180deg);
-    }
     &:hover .team-member-front {
-    	background: $white;
-    	cursor: pointer;
+    	transform: rotateY(-180deg);
+    	h4,
+		p {
+			opacity: 0;
+		}
     }
+    .team-member-contact-info {
+	    align-self: flex-end;
+	    text-align: left;
+	    width: 100%;
+	    margin-bottom: .875rem;
+	}
+	.team-member-contact-info p {
+	    font-size: .75rem;
+	    margin: 0;
+	}
     img {
     	background: $white;
     }
 	h4 {
 	    margin-bottom: 0;
 	}
-	p {
+	p.team-member-one-liner {
 	    margin-top: $size-base/2;
+	    margin-bottom: 0;
 	}
 }
 
@@ -129,5 +147,9 @@
 	background: $blue url('/wp-content/uploads/2017/08/team-bg.jpg') no-repeat center center/cover !important;
 }
 #guarantee {
-	background: $blue url('/wp-content/uploads/2017/08/spilltration-bg.jpg') no-repeat center center/cover !important;	
+	background: $blue url('/wp-content/uploads/2017/08/spilltration-bg.jpg') no-repeat center center/cover !important;
+	input:not([type="submit"]),
+	textarea {
+	    background: rgba(255, 255, 255, 0.5);
+	}
 }

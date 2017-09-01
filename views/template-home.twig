@@ -13,7 +13,7 @@
 			<div class="hero-bottom">
 				<div class="wrapper">
 					<h2>Are you a...</h2>
-					<div class="industries">
+					<div class="industries" id="industries">
 						{% for industry in post.get_field('industries') %}
 					        <a href="{{industry.url}}" class="industry">
 					            <h3>{{industry.name}}</h3>
@@ -341,14 +341,19 @@
 			{% endif %}
 		{% endfor %}
 	</section>
-	<section class="testimonials">
-		{% for testimonial in post.get_field('testimonials') %}
-	        <div class="testimonial">
-	            <a href="#">
-	            	<img src="{{TimberImage(testimonial.logo).src}}" width="{{TimberImage(testimonial.logo).width}}" height="{{TimberImage(testimonial.logo).height}}" />
-	            </a>
-	        </div>
-	    {% endfor %}
+	<section class="testimonials-section">
+		<div class="wrapper">
+			<h4>Proud Members of the Following Associations</h4>
+		</div>
+		<div class="testimonials">
+			{% for testimonial in post.get_field('testimonials') %}
+		        <div class="testimonial">
+		            <a href="{{testimonial.url}}">
+		            	<img src="{{TimberImage(testimonial.logo).src}}" width="{{TimberImage(testimonial.logo).width}}" height="{{TimberImage(testimonial.logo).height}}" />
+		            </a>
+		        </div>
+		    {% endfor %}
+		</div>
 	</section>
 	<section class="large-section">
 		<div class="row-fluid">

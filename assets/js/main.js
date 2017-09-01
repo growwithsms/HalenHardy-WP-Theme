@@ -7,8 +7,8 @@
 // on ready
 $(function() {
 
-    // Home Page...
-    if ($('.home').length) {
+    // Animate oil if the oil div exists on page
+    if ($('#oil').length) {
         // Oil Animation
         var animation = bodymovin.loadAnimation({
             container: document.getElementById('oil'),
@@ -19,110 +19,15 @@ $(function() {
         });
     }
 
-    // All Pages Other than the home page...
-    else {
-        // Sticky header on tablet/desktop
-        // if (matchMedia('only screen and (min-width: 797px)').matches) {
-
-        //     var sticky = new Waypoint.Sticky({
-        //         element: $('.site-header-top')[0]
-        //     });
-
-        // }
-    }
-
     // Responsive Embeds
     $(".site-main").fitVids({
         customSelector: "iframe[src^='https://www.google.com/maps']"
     });
 
     // About Page
-    $(".team-member").on('click', function() {
-        $(this).toggleClass('active');
-    });
-
-    
-    // Spilltration Page
-    if($('.page-template-template-spilltration').length) {
-        var spilltrationSection = new Waypoint.Inview({
-            element: $('#spilltration')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-        var spilltrationSection1 = new Waypoint.Inview({
-            element: $('#spilltration-1')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-        var spilltrationSection2 = new Waypoint.Inview({
-            element: $('#spilltration-2')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-        var spilltrationSection3 = new Waypoint.Inview({
-            element: $('#spilltration-3')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-        var spilltrationSection4 = new Waypoint.Inview({
-            element: $('#spilltration-4')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-        var spilltrationSection5 = new Waypoint.Inview({
-            element: $('#spilltration-5')[0],
-            enter: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).addClass('active');
-            },
-            exited: function(direction) {
-                var thisID = this.element.id,
-                    anchor = 'a[href="#' + thisID + '"]';
-                $(anchor).removeClass('active');
-            }
-        });
-    }
+    // $(".team-member").on('click', function() {
+    //     $(this).toggleClass('active');
+    // });
 
     if($('.page-template-template-about').length) {
         var historySection = new Waypoint.Inview({
@@ -205,6 +110,101 @@ $(function() {
         });
     }
 
+    // Spilltration Page
+    if($('.page-template-template-spilltration').length) {
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#functionality')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#space')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#speed')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#waste')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#ultraviolet')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#sustainability')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+        var spilltrationSection = new Waypoint.Inview({
+            element: $('#cost')[0],
+            enter: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).addClass('active');
+            },
+            exited: function(direction) {
+                var thisID = this.element.id,
+                    anchor = 'a[href="#' + thisID + '"]';
+                $(anchor).removeClass('active');
+            }
+        });
+    }
+
     // Smooth scrolling...
     $('a[href*="#"]')
         // Remove links that don't actually link to anything
@@ -241,4 +241,62 @@ $(function() {
             }
         });
 
+});
+
+
+////////////////////
+// Smart Leadflow
+////////////////////
+
+// Cookie functions
+function createCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+
+// Get the modal
+var modal = document.getElementById('smart-leadflow');
+
+// When the user clicks anywhere outside of the modal, close it and set cookie
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        createCookie('smartleadflowexited','smartleadflowexited',14);
+
+    }
+}
+
+// set cookie on cta click
+jQuery('.modal-content').on('click', function(){
+    createCookie('smartleadflowexited','smartleadflowexited',14);
+});
+
+// On Window Load
+jQuery( window ).load(function() {
+    // delay popup 10 seconds
+    setTimeout(function(){ 
+        // If cookie doesn't exist, show popup
+        var x = readCookie('smartleadflowexited');
+        if (x != "smartleadflowexited") {
+            jQuery('#smart-leadflow').fadeIn();
+        }
+    }, 10000);
 });

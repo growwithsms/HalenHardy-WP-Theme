@@ -25,6 +25,8 @@
 		}
 		.button.orange {
 			margin-bottom: -1.5rem;
+			position: relative;
+			z-index: 1;
 		}
 	}
 	&-bottom {
@@ -314,13 +316,20 @@
 .blocky-grid-item--inner > *:last-child {
     margin-bottom: 0;
 }
-.testimonials {
+.testimonials-section {
 	padding: $size-base*2 $size-base;
+	background-color: $white;
+	h4 {
+		opacity: .75;
+		text-align: center;
+		margin-bottom: 0;
+	}
+}
+.testimonials {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
-	background-color: $white;
 	.testimonial {
 		margin: $size-base*2;
 	}

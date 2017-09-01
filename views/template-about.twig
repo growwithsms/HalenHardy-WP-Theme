@@ -3,7 +3,7 @@
 {% block content %}
 	<div class="anchor-navigation">
 		<ul>
-			<li><a class="active" href="#top"><span>Overview</span></a></li>
+			<li><a href="#top"><span>Overview</span></a></li>
 			<li><a href="#golden-days"><span>1960s</span></a></li>
 			<li><a href="#early-days"><span>1970s</span></a></li>
 			<li><a href="#middle-days"><span>1980s/1990s</span></a></li>
@@ -95,7 +95,11 @@
 					            <p>{{team_member.title}}</p>
 					        </div>
 				            <div class="team-member-back">
-				            	<p>{{team_member.one_liner}}</p>
+								<p class="text-center team-member-one-liner">{{team_member.one_liner}}</p>
+								<div class="team-member-contact-info">
+									{% if team_member.phone %}<p class="team-member-phone"><span>Phone:</span> {{team_member.phone}}</p>{% endif %}
+									{% if team_member.email %}<p class="team-member-email"><span>Email:</span> <a href="mailto:{{team_member.email}}">{{team_member.email}}</a></p>{% endif %}
+								</div>
 				            </div>
 				        </div>
 				    {% endfor %}
@@ -107,7 +111,11 @@
 					            <p>{{team_member.title}}</p>
 					        </div>
 				            <div class="team-member-back">
-				            	<p>{{team_member.one_liner}}</p>
+								<p class="text-center team-member-one-liner">{{team_member.one_liner}}</p>
+								<div class="team-member-contact-info">
+									{% if team_member.phone %}<p class="team-member-phone"><span>Phone:</span> {{team_member.phone}}</p>{% endif %}
+									{% if team_member.email %}<p class="team-member-email"><span>Email:</span> <a href="mailto:{{team_member.email}}">{{team_member.email}}</a></p>{% endif %}
+								</div>
 				            </div>
 				        </div>
 				    {% endfor %}
@@ -119,7 +127,11 @@
 					            <p>{{team_member.title}}</p>
 					        </div>
 				            <div class="team-member-back">
-				            	<p>{{team_member.one_liner}}</p>
+								<p class="text-center team-member-one-liner">{{team_member.one_liner}}</p>
+								<div class="team-member-contact-info">
+									{% if team_member.phone %}<p class="team-member-phone"><span>Phone:</span> {{team_member.phone}}</p>{% endif %}
+									{% if team_member.email %}<p class="team-member-email"><span>Email:</span> <a href="mailto:{{team_member.email}}">{{team_member.email}}</a></p>{% endif %}
+								</div>
 				            </div>
 				        </div>
 				    {% endfor %}
@@ -131,7 +143,11 @@
 					            <p>{{team_member.title}}</p>
 					        </div>
 				            <div class="team-member-back">
-				            	<p>{{team_member.one_liner}}</p>
+								<p class="text-center team-member-one-liner">{{team_member.one_liner}}</p>
+								<div class="team-member-contact-info">
+									{% if team_member.phone %}<p class="team-member-phone"><span>Phone:</span> {{team_member.phone}}</p>{% endif %}
+									{% if team_member.email %}<p class="team-member-email"><span>Email:</span> <a href="mailto:{{team_member.email}}">{{team_member.email}}</a></p>{% endif %}
+								</div>
 				            </div>
 				        </div>
 				    {% endfor %}
@@ -146,6 +162,7 @@
 						{{post.get_field('guarantee')}}
 					</div>
 					<div class="span6">
+						{{post.get_field('guarantee_above_form')}}
 						{{post.get_field('guarantee_form_embed')}}
 					</div>
 				</div>
