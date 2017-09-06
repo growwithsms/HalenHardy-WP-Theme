@@ -85,25 +85,33 @@ new StarterSite();
 
 // Enqueue scripts
 function my_scripts() {
-
-	// Use jQuery from a CDN
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, true);
-
 	// Enqueue our stylesheet and JS file with a jQuery dependency.
 	// Note that we aren't using WordPress' default style.css, and instead enqueueing the file of compiled Sass.
 	wp_enqueue_style( 'my-styles', get_template_directory_uri() . '/assets/css/main.css', 1.0);
-	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), '1.0.0', true );
+	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/assets/js/main.min.js', array('jquery'), '1.0.1', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
-// WooCommerce loop context fix
-function timber_set_product( $post ) {
-    global $product;
-    if ( is_woocommerce() ) {
-        $product = wc_get_product($post->ID);
-    }
+// remove parapraph tags from images
+function filter_ptags_on_images($content) {
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('acf_the_content', 'filter_ptags_on_images', 9999);
+add_filter('the_content', 'filter_ptags_on_images', 9999);
+
+
+// WooCommerce Breadcrumbs - change home (default) to shop
+add_filter( 'woocommerce_breadcrumb_home_url', 'sms_custom_breadrumb_home_url' );
+function sms_custom_breadrumb_home_url() {
+    return 'https://www.halenhardy.com/shop/';
+}
+add_filter( 'woocommerce_breadcrumb_defaults', 'sms_change_breadcrumb_home_text' );
+function sms_change_breadcrumb_home_text( $defaults ) {
+    // Change the breadcrumb home text from 'Home' to 'Shop'
+	$defaults['home'] = 'Shop';
+	return $defaults;
 }
 
 // Declare WooCommerce Theme Support
@@ -115,10 +123,3 @@ function woocommerce_support() {
 	add_theme_support( 'wc-product-gallery-slider' );
 }
 
-// remove parapraph tags from images
-function filter_ptags_on_images($content) {
-    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
-}
-add_filter('acf_the_content', 'filter_ptags_on_images', 9999);
-add_filter('the_content', 'filter_ptags_on_images', 9999);

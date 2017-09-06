@@ -5,7 +5,7 @@
 //@prepros-prepend vendor/jquery.fitvids.js
 
 // on ready
-$(function() {
+jQuery(document).ready(function($) {
 
     // Animate oil if the oil div exists on page
     if ($('#oil').length) {
@@ -206,7 +206,7 @@ $(function() {
     }
 
     // Smooth scrolling...
-    $('a[href*="#"]')
+    $('body:not(.woocommerce) a[href*="#"]')
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
@@ -241,62 +241,60 @@ $(function() {
             }
         });
 
-});
 
 
-////////////////////
-// Smart Leadflow
-////////////////////
+        ////////////////////
+        // Smart Leadflow
+        ////////////////////
 
-// Cookie functions
-function createCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-}
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-function eraseCookie(name) {
-    createCookie(name,"",-1);
-}
-
-// Get the modal
-var modal = document.getElementById('smart-leadflow');
-
-// When the user clicks anywhere outside of the modal, close it and set cookie
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        createCookie('smartleadflowexited','smartleadflowexited',14);
-
-    }
-}
-
-// set cookie on cta click
-jQuery('.modal-content').on('click', function(){
-    createCookie('smartleadflowexited','smartleadflowexited',14);
-});
-
-// On Window Load
-jQuery( window ).load(function() {
-    // delay popup 10 seconds
-    setTimeout(function(){ 
-        // If cookie doesn't exist, show popup
-        var x = readCookie('smartleadflowexited');
-        if (x != "smartleadflowexited") {
-            jQuery('#smart-leadflow').fadeIn();
+        // Cookie functions
+        function createCookie(name,value,days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + expires + "; path=/";
         }
-    }, 10000);
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+
+        // set cookie on cta click
+        $(document).on('click', '#smart-leadflow img', function(){
+            createCookie('smartleadflowexited','smartleadflowexited',14);
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        $(document).on('click', '.close', function(){
+            $('#smart-leadflow').hide();
+            createCookie('smartleadflowexited','smartleadflowexited',14);
+        });
+
+        // On Window Load
+        $( window ).load(function() {
+            // delay popup 10 seconds
+            setTimeout(function(){ 
+                // If cookie doesn't exist, show popup
+                var x = readCookie('smartleadflowexited');
+                if (x != "smartleadflowexited") {
+                    $('#smart-leadflow').fadeIn();
+                }
+            }, 10000);
+        });
+
 });
+
+
+

@@ -1,5 +1,18 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section>
+			<div class="article-header wrapper text-center">
+				<h1>Oh, Crap!</h1>
+				<p class="secondary-header">404 Error</p>
+			</div>
+			<div class="article-body-wrapper">
+				<div class="article-body wrapper text-center">
+					<p>We couldn't absorb what you were looking for...</p>
+					<p>You could try <a href="https://www.halenhardy.com/">visiting our homepage</a> or <a href="http://blog.halenhardy.com/">reading one of our latest blog posts</a> instead.</p>
+				</div>
+			</div>
+		</section>
+	</article>
 {% endblock %}

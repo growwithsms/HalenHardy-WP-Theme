@@ -171,6 +171,26 @@ table {
 	}
 }
 
+.search-results {
+	h1 {
+		text-align: center;
+	}
+	.tease {
+	    margin-bottom: 1rem;
+	    padding-bottom: 0rem;
+	    border-bottom: 1px solid #ccc;
+	    max-width: 800px;
+	    margin: auto;
+		img {
+			display: none;
+		}
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 0;
+		}
+	}
+}
+
 
 // ---
 // Footer
@@ -182,9 +202,32 @@ table {
 	background: $black;
 	color: $white;
 	padding: $size-base;
+	.wrapper {
+		@include bp(md) {
+		    display: flex;
+		    align-items: center;
+		    justify-content: space-between;
+		}
+	}
+	form {
+	    display: flex;
+	    input[type="search"] {
+		    background: none;
+		    border: 0 none;
+		    flex: 1;
+		    border-bottom: 2px solid #555;
+		}
+		button {
+		    margin: 0;
+		    background: none;
+		    border: 0 none;
+		    padding: 0 1rem;
+		}
+	}
 	p {
 		line-height: 1;
 	}
+
 	a {
 		color: $white;
 		vertical-align: middle;
@@ -195,4 +238,53 @@ table {
 			opacity: .9;
 		}
 	}
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 480px;
+    text-align: center;
+}
+
+/* The Close Button */
+.close {
+	color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    background: white;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -2rem;
+    position: relative;
+    z-index: 999999;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
 }
