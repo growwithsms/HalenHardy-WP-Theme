@@ -24,6 +24,24 @@ jQuery(document).ready(function($) {
         customSelector: "iframe[src^='https://www.google.com/maps']"
     });
 
+    // Smooth scroll and focus to footer search
+    $('a[href="#search"]').on('click', function(event) {
+        
+        event.preventDefault();
+        
+        // Figure out element to scroll to
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          var $target = $('#search input');
+          $target.focus();
+        });
+        
+    });
+
     // About Page
     // $(".team-member").on('click', function() {
     //     $(this).toggleClass('active');
@@ -206,7 +224,7 @@ jQuery(document).ready(function($) {
     }
 
     // Smooth scrolling...
-    $('body:not(.woocommerce) a[href*="#"]')
+    $('body:not(.woocommerce) a[href*="#"]:not([href="#search"])')
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')

@@ -3,3 +3,15 @@
 // Shameful Styles
 // ---
 
+.testimonial {
+	max-width: 220px;
+}
+
+
+@media (max-width: 767px) {
+    .modal {
+        display: none !important;
+    }
+}
+
+

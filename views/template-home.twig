@@ -349,7 +349,7 @@
 			{% for testimonial in post.get_field('testimonials') %}
 		        <div class="testimonial">
 		            <a href="{{testimonial.url}}">
-		            	<img src="{{TimberImage(testimonial.logo).src}}" width="{{TimberImage(testimonial.logo).width}}" height="{{TimberImage(testimonial.logo).height}}" />
+		            	<img src="{{TimberImage(testimonial.logo).src}}" width="{{TimberImage(testimonial.logo).width}}" height="{{TimberImage(testimonial.logo).height}}" alt="{{TimberImage(testimonial.logo).alt}}" />
 		            </a>
 		        </div>
 		    {% endfor %}
@@ -358,7 +358,7 @@
 	<section class="large-section">
 		<div class="row-fluid">
 			<div class="span6">
-				<img src="{{ post.thumbnail.src }}" alt="{{post.title}}">
+				<img src="{{ post.thumbnail.src }}" alt="{{post.thumbnail.alt}}">
 			</div>
 			<div class="span6">
 				{{post.content}}

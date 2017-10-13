@@ -6,8 +6,17 @@
 			{% if item.get_children %}
 				<ul class="nav nav-drop">
 				{% for child in item.get_children %}
-					<li class="nav-drop-item">
-						<a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+					<li class="nav-drop-item nav-item-depth-2 {{child.classes | join(' ')}}">
+						<a class="nav-item-link" href="{{child.get_link}}">{{child.title}}</a>
+						{% if child.get_children %}
+							<ul class="nav nav-drop nav-drop-depth-2">
+							{% for grandchild in child.get_children %}
+								<li class="nav-drop-item nav-item-depth-3 {{grandchild.classes | join(' ')}}">
+									<a class="nav-item-link" href="{{grandchild.get_link}}">{{grandchild.title}}</a>
+								</li>
+							{% endfor %}
+							</ul>
+						{% endif %}
 					</li>
 				{% endfor %}
 				</ul>
