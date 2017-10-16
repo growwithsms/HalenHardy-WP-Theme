@@ -88,6 +88,7 @@ figure.woocommerce-product-gallery__wrapper {
     padding: 1rem 0;
     background: $grey;
     position: relative;
+    z-index: 10;
     &:before,
     &:after {
     	content: "";

@@ -113,6 +113,8 @@ function sms_change_breadcrumb_home_text( $defaults ) {
 	$defaults['home'] = 'Shop';
 	return $defaults;
 }
+// Fix woocommerce variation pages not loading script
+wp_enqueue_script( 'wc-add-to-cart-variation', $woocommerce->plugin_url() . '/assets/js/frontend/add-to-cart-variation.js', array('jquery', 'wp-util'), '1.6', true );
 
 // Declare WooCommerce Theme Support
 add_action( 'after_setup_theme', 'woocommerce_support' );
